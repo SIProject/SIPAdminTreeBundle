@@ -1,0 +1,30 @@
+{% extends base_template %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        var rootErrorMessage = '{{ 'sip_root_error_message'|trans }}';
+        var nodeErrorMessage = '{{ 'sip_node_error_message'|trans }}';
+    </script>
+    <script src="{{ asset('bundles/sipadmintree/js/scripts.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sipadmintree/css/styles.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block actions %}
+    <li>{% include 'SonataAdminBundle:Button:create_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:list_button.html.twig' %}</li>
+{% endblock %}
+
+{% block list_table %}
+    <div id="tree" data-url="{{ admin.generateUrl('nodes') }}"></div>
+{% endblock %}
+
+{% block navbar_title %}
+    {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+    {% include 'SonataAdminBundle:Button:list_button.html.twig' %}
+{% endblock %}

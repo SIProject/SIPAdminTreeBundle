@@ -1,0 +1,24 @@
+{
+    "name": "sip/admin-tree-bundle",
+    "type": "sonata-admin-bundle",
+    "description": "Admin Tree Bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya Sukhinin",
+            "email": "iljasuhinin@gmail.com",
+            "homepage": "http://sip-projects.com"
+        },
+        {
+            "name": "SIP Projects",
+            "homepage": "https://github.com/SIProject"
+        }
+    ],
+    "require": {
+        "sonata-project/admin-bundle": "2.3.x-dev"
+    },
+    "autoload": {
+        "psr-0": { "SIP\\AdminTreeBundle": "" }
+    },
+    "target-dir": "SIP/AdminTreeBundle"
+}
