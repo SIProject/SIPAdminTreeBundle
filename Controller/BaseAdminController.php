@@ -257,11 +257,16 @@ class BaseAdminController extends Controller
         try {
             switch ($dropPosition) {
                 case 'before':
+                    // Ищем узел, предшествующий текущему, в пределах этого уровня.
                     $prevSiblingNodes = $repo->getPrevSiblings($targetNode);
                     if (false == $prevSiblingNodes) {
+                        // У текущего узла нет предыдущего собрата.
+                        // Вставляем как первый дочерний узел
                         $repo->persistAsFirstChildOf($sourceNode, $targetNode->getParent());
                     } else {
+                        // Нашли узел, предшествующий текущему, в пределах этого уровня.
                         $prevSiblingNode = array_pop($prevSiblingNodes);
+                        // Вставляем перетаскиваемый узел за ним.
                         $repo->persistAsNextSiblingOf($sourceNode, $prevSiblingNode);
                     }
                     break;
